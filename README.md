@@ -20,6 +20,7 @@ A library to implement the browser [MediaRecorder](https://developer.mozilla.org
   
   // A function that will return the audio data as Uint8List
   receiveData(data){
+    // TODO Your logic to use this Uint8List audio data...
     print(data);
   }
   
@@ -64,7 +65,6 @@ import 'package:flutter/material.dart';
 
 class WebRecorder {
   static bool isNotRecording = true;
-  static html.AudioElement audioElement;
   static html.MediaRecorder recorder;
 
   final Function whenRecorderStart; // Function to call when recording starts
@@ -75,9 +75,7 @@ class WebRecorder {
       @required this.whenRecorderStart, 
       @required this.whenRecorderStop, 
       @required this.whenReceiveData
-  }){
-    WebRecorder.audioElement = html.AudioElement();
-  }
+  });
 
   openRecorder(){
     WebRecorder.isNotRecording = !WebRecorder.isNotRecording;
@@ -118,7 +116,6 @@ class WebRecorder {
   setData(data) => whenReceiveData(data);
 
   dispose(){
-    WebRecorder.audioElement = null;
     WebRecorder.recorder.removeEventListener('dataavailable', hundlerFunctionStream);
     WebRecorder.recorder = null;
   }
