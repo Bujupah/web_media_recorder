@@ -1,0 +1,15 @@
+name: web_media_recorder
+description: An easy way to implement MediaRecorder Browser API with flutter web.
+version: 0.0.1
+homepage: https://github.com/bujupah/web_media_recorder
+
+environment:
+  sdk: ">=2.1.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
